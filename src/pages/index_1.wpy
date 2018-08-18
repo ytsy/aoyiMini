@@ -1,0 +1,37 @@
+<style lang="scss">
+
+</style>
+<template>
+    <swiper>
+        <repeat>
+            <swiper-item ></swiper-item>
+        </repeat>
+    </swiper>
+    <view>cde</view>
+</template>
+<script>
+    import wepy from 'wepy';
+    export default class Index extends wepy.page{
+        data={
+           API:{
+               getProdDetailAPI:"FETCH_PROD_DETAIL",
+               getProdDetailUserAPI:"FETCH_PROD_DETAIL_LOGGED",
+               getUserStatusAPI:"FETCH_USER_STATUS",
+               //获取购物车商品数量
+               getCarProdNumAPI:"FETCH_SHOPPING_CAR_PROD_NUM",
+               //登录
+               getProdDetailUserAPI_new:"FETCH_SHOPPING_PROD_DETAIL_LOG",
+               //未登录
+               getProdDetailAPI_new:"FETCH_SHOPPING_PROD_DETAIL_DISLOG",
+               //添加商品进入购物车
+               addProdToCartAPI:"ADD_SHOPPING_PROD",
+           },
+
+        };
+        onLoad(obj){
+            this.$parent.sendRequest(this.API.getProdDetailAPI_new,{goodsid:"0022"}).then((res)=>{
+                console.log(res);
+            });
+        };
+    }
+</script>
